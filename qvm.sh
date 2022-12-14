@@ -58,7 +58,7 @@ echo_color () {
 
     reset='\033[0m'
 
-    echo -e "${color}${2}${reset}" >&2
+    echo -e "${color}${2}${reset}"
 }
 
 echo_blue () {
@@ -70,11 +70,11 @@ echo_green () {
 }
 
 echo_red () {
-    echo_color "RED" "$1"
+    echo_color "RED" "$1" >&2
 }
 
 echo_yellow () {
-    echo_color "YELLOW" "$1"
+    echo_color "YELLOW" "$1" >&2
 }
 
 run_checks () {
