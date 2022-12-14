@@ -114,7 +114,7 @@ check_tmpl () {
         done
     fi
 
-    return $exit_code
+    return "$exit_code"
 }
 
 run_cmd () {
