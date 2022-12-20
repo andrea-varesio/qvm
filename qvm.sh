@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define templates to be excluded from global operations
-exclude_tmpl=(debian-11 debian-11-minimal fedora-36 fedora-36-minimal)
+exclude_tmpl=(debian-11-minimal fedora-36 fedora-36-minimal)
 
 #########################################################################
 # GNU GENERAL PUBLIC LICENSE                                            #
@@ -24,7 +24,7 @@ exclude_tmpl=(debian-11 debian-11-minimal fedora-36 fedora-36-minimal)
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.#
 #########################################################################
 
-VERSION=20221214.01
+VERSION=20221220.01
 
 print_help () {
     echo "qvm - Qubes OS VM multitool | version: $VERSION"
