@@ -8,7 +8,7 @@ exclude_tmpl=(debian-11-minimal fedora-36 fedora-36-minimal)
 # Version 3, 29 June 2007                                               #
 #                                                                       #
 # "qvm" - Qubes OS VM multitool                                         #
-# Copyright (C) 2022 Andrea Varesio <https://www.andreavaresio.com/>.   #
+# Copyright (C) 2023 Andrea Varesio <https://www.andreavaresio.com/>.   #
 #                                                                       #
 # This program is free software: you can redistribute it and/or modify  #
 # it under the terms of the GNU General Public License as published by  #
@@ -24,11 +24,11 @@ exclude_tmpl=(debian-11-minimal fedora-36 fedora-36-minimal)
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.#
 #########################################################################
 
-VERSION=20221220.01
+VERSION=20230102.01
 
 print_help () {
     echo "qvm - Qubes OS VM multitool | version: $VERSION"
-    echo 'Copyright (C) 2022 Andrea Varesio <https://www.andreavaresio.com/>'
+    echo 'Copyright (C) 2023 Andrea Varesio <https://www.andreavaresio.com/>'
     echo
     echo "usage: $0 [OPTIONS] [VM | ALL] [COMMAND | UPDATE_PATH]
 
@@ -95,7 +95,7 @@ run_checks () {
     # Print warning if a command was requested unnecessarily
     if [[ $root_shell == 1 && -n "$VM_CMD" ]]; then
         echo_yellow "COMMAND will NOT be executed since a root shell was requested!"
-    fi 
+    fi
 }
 
 check_tmpl () {
@@ -108,7 +108,7 @@ check_tmpl () {
             if [[ "$1" == "$tmpl" ]]; then
                 local exit_code=1
                 break
-            else 
+            else
                 local exit_code=0
             fi
         done
@@ -131,7 +131,7 @@ run_cmd_quiet () {
     # Run command in VM with no visible output
     if qvm-run -u root "$VM" "$1" &> /dev/null; then
         if [[ $verbose == 1 ]]; then echo_blue "VM COMMAND completed:"; echo "$1"; fi
-    else 
+    else
         echo_red "VM COMMAND failed!"
         echo_yellow "$1"
     fi
@@ -181,7 +181,7 @@ launch_shell () {
 
 update_packages () {
     run_update () {
-        # Update VM packages 
+        # Update VM packages
         if [[ $verbose == 1 ]]; then run_cmd "apt update"; else run_cmd_quiet "apt update"; fi
         run_cmd "apt upgrade -y"
         if [[ $verbose == 1 ]]; then run_cmd "apt autoremove -y"; else run_cmd_quiet "apt autoremove -y"; fi
@@ -262,7 +262,7 @@ shutdown_vm () {
 }
 
 main () {
-    while getopts hcI:R:rstuUvw option; do 
+    while getopts hcI:R:rstuUvw option; do
         case "${option}" in
             h)print_help; exit 0;;
             c)vm_cleaning=1;;
