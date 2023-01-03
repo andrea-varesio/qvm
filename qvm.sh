@@ -3,32 +3,32 @@
 # Define templates to be excluded from global operations
 exclude_tmpl=(debian-11-minimal fedora-36 fedora-36-minimal)
 
-#########################################################################
-# GNU GENERAL PUBLIC LICENSE                                            #
-# Version 3, 29 June 2007                                               #
-#                                                                       #
-# "qvm" - Qubes OS VM multitool                                         #
-# Copyright (C) 2023 Andrea Varesio <https://www.andreavaresio.com/>.   #
-#                                                                       #
-# This program is free software: you can redistribute it and/or modify  #
-# it under the terms of the GNU General Public License as published by  #
-# the Free Software Foundation, either version 3 of the License, or     #
-# (at your option) any later version.                                   #
-#                                                                       #
-# This program is distributed in the hope that it will be useful,       #
-# but WITHOUT ANY WARRANTY; without even the implied warranty of        #
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
-# GNU General Public License for more details.                          #
-#                                                                       #
-# You should have received a copy of the GNU General Public License     #
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.#
-#########################################################################
+###########################################################################
+# GNU GENERAL PUBLIC LICENSE                                              #
+# Version 3, 29 June 2007                                                 #
+#                                                                         #
+# "qvm" - Qubes OS VM multitool                                           #
+# Copyright (C) 2022-2023 Andrea Varesio <https://www.andreavaresio.com/>.#
+#                                                                         #
+# This program is free software: you can redistribute it and/or modify    #
+# it under the terms of the GNU General Public License as published by    #
+# the Free Software Foundation, either version 3 of the License, or       #
+# (at your option) any later version.                                     #
+#                                                                         #
+# This program is distributed in the hope that it will be useful,         #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of          #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           #
+# GNU General Public License for more details.                            #
+#                                                                         #
+# You should have received a copy of the GNU General Public License       #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.  #
+###########################################################################
 
-VERSION=20230102.01
+VERSION=20230103.01
 
 print_help () {
     echo "qvm - Qubes OS VM multitool | version: $VERSION"
-    echo 'Copyright (C) 2023 Andrea Varesio <https://www.andreavaresio.com/>'
+    echo 'Copyright (C) 2022-2023 Andrea Varesio <https://www.andreavaresio.com/>'
     echo
     echo "usage: $0 [OPTIONS] [VM | ALL] [COMMAND | UPDATE_PATH]
 
@@ -45,7 +45,7 @@ print_help () {
     -v          enable verbosity
     -w          include Whonix templates in 'ALL' (when performing global operations)
 
-    VM | ALL:   you can define a specific VM or pass 'ALL' to imply all supported templates
+    VM | ALL    you can define a specific VM or pass 'ALL' to imply all supported templates
     "
 }
 
