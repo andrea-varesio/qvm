@@ -24,7 +24,7 @@ exclude_tmpl=(debian-11-minimal fedora-36 fedora-36-minimal)
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.  #
 ###########################################################################
 
-VERSION=20230103.01
+VERSION=20230110.01
 
 print_help () {
     echo "qvm - Qubes OS VM multitool | version: $VERSION"
@@ -179,9 +179,19 @@ launch_shell () {
     if [[ $vm_shutdown == 1 ]]; then shutdown_vm; fi
 }
 
+fix_sources () {
+    # Check if VM is a template; if not, fix apt sources (if the VM uses apt-cacher-ng)
+    vm_class=$(qvm-prefs "$VM" klass)
+    if [[ "$vm_class" != "TemplateVM" ]]; then
+        run_cmd "sed -i 's|tor+||g' /etc/apt/sources.list.d/*.list"
+        run_cmd "sed -i 's|http://HTTPS///|https://|g' /etc/apt/sources.list.d/*.list"
+    fi
+}
+
 update_packages () {
     run_update () {
         # Update VM packages
+        fix_sources
         if [[ $verbose == 1 ]]; then run_cmd "apt update"; else run_cmd_quiet "apt update"; fi
         run_cmd "apt upgrade -y"
         if [[ $verbose == 1 ]]; then run_cmd "apt autoremove -y"; else run_cmd_quiet "apt autoremove -y"; fi
